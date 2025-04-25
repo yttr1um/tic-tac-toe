@@ -54,6 +54,7 @@ const gameBoard = (() => {
     }
     
     const getWinner = (board) => {
+        //for the horizontal win. it works. 
         for (let i = 0; i < board.length; i++) {
             let setArr = [...new Set(board[i])]
             if (setArr.length === 1 && setArr[0] !== '_') {
@@ -61,7 +62,14 @@ const gameBoard = (() => {
             }
         }
 
-        if (board[0][0] == board[1][1] == board[2][2]) {
+        //no idea why i called it horizontal. anyway doesn't work.
+        let horizontal = [...new Set([board[0][0], board[1][1], board[2][2]])];
+        if (horizontal.length === 1 && horizontal[0] !== '_') {
+            return "win";
+        }
+
+        let other = [...new Set([board[0][2], board[1][1], board[2][0]])];
+        if (other.length === 1 && other[0] !== '_') {
             return "win";
         }
     }
