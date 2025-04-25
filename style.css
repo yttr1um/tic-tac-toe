@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --playing-container-clr: rgb(235, 235, 235);
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    box-sizing: border-box;
+    --dimention: 500px;
+    height: var(--dimention);
+    width: var(--dimention);
+    background-color: var(--playing-container-clr);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    box-shadow: 10px 10px 30px 5px rgba(0, 0, 0, 0.275);
+
+}
+
+#lines {
+    flex: 1;
+    background-color: rgb(255, 85, 85);
+
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 5px;
+}
+
+#lines div {
+    background-color: var(--playing-container-clr);
+}

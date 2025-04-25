@@ -87,8 +87,8 @@ const gameBoard = (() => {
         let r = 9;
         
         for (let i = r; i >= 0; i--) {
-            let row = prompt("Row: ");
-            let col = prompt("Column: ")
+            // let row = prompt("Row: ");
+            // let col = prompt("Column: ")
             
             gameBoard.addMarker(getActivePlayer(), col, row);
             
