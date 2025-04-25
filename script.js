@@ -53,14 +53,16 @@ const gameBoard = (() => {
         console.log(`It's ${activePlayer.name}'s turn`);
     }
     
-    const getWinner = (player) => {
-        for (let row of gameBoard.getBoard()) {
-            const rowSet = new Set(row);
-            if (Array.from(rowSet).length === 1) {
-                return player.name;
-            } else {
-                return "Tie";
+    const getWinner = (board) => {
+        for (let i = 0; i < board.length; i++) {
+            let setArr = [...new Set(board[i])]
+            if (setArr.length === 1 && setArr[0] !== '_') {
+                return "win";
             }
+        }
+
+        if (board[0][0] == board[1][1] == board[2][2]) {
+            return "win";
         }
     }
     
@@ -75,8 +77,8 @@ const gameBoard = (() => {
             
             gameBoard.addMarker(getActivePlayer(), col, row);
             
-            const winner = getWinner(getActivePlayer());
-            if (winner !== "Tie") {
+            const winner = getWinner(gameBoard.getBoard());
+            if (winner === "win") {
                 //check if the player won (change condition) and break.
                 gameBoard.printBoard();
                 console.log("winner winner chicken dinner");
