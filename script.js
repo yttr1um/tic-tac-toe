@@ -60,9 +60,16 @@ const gameBoard = (() => {
             if (setArr.length === 1 && setArr[0] !== '_') {
                 return "win";
             }
+
+            let vertical = [...new Set([board[0][i], board[1][i], board[2][i]])]
+            if (vertical.length === 1 && vertical[0] !== '_') {
+                return "win";
+            }
         }
 
-        //no idea why i called it horizontal. anyway doesn't work.
+
+
+        //Theres probably a better way to do it
         let horizontal = [...new Set([board[0][0], board[1][1], board[2][2]])];
         if (horizontal.length === 1 && horizontal[0] !== '_') {
             return "win";
